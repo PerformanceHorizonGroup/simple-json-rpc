@@ -1,0 +1,23 @@
+{
+	"name":"simple-json-rpc",
+	"version":"0.1.0",
+	"author":"PHG <techies@performancehorizon.com>",
+	"description":"a very simple approach to RPC using JSON encoded messages",
+	"contributors":[{
+		"name":"Georgi Kostov",
+		"email":"georgi.kostov@performancehorizon.com"
+	}],
+	"main":"./JSON-RPC",
+	"repository":{
+		"type":"git",
+		"url":"https://github.com/PerformanceHorizonGroup/simple-json-rpc.git"
+	},
+	"keywords":[
+		"rpc",
+		"json"
+	],
+	"license":"MIT",
+	"engine":{
+		"node":">=0.5.3"
+	}
+}
