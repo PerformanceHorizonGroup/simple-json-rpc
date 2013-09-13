@@ -74,7 +74,8 @@ And for a node.js example we could try RPC over IPC ;) which will be like:
 					cb(param1+param2);
 				},
 				subtract:function (param1, param2, cb){
-					cb(param1-param2);
+					if(cb)
+						cb(param1-param2);
 				}
 			},
 			sendRPCMessage:function (msg){
@@ -100,7 +101,7 @@ And for a node.js example we could try RPC over IPC ;) which will be like:
 	}
 ```
 
-In this example the forked rpc peer is not yet capable of calling the remote methods because it doesn't what what they could be since there was no `remoteMethods:[]` in its configuration. Instead it could use a remote call to get that list:
+In this example the forked rpc peer is not yet capable of calling the remote methods because it doesn't know what they could be since there was no `remoteMethods:[]` in its configuration. Instead it could use a remote call to get that list:
 ```javascript
 		forkedRpc.retrieveRemoteMethods(function (err, list){
 			if(!err){
@@ -110,7 +111,7 @@ In this example the forked rpc peer is not yet capable of calling the remote met
 				// so now we can send our addition request
 				forkedRpc.targetObj.sum(4, 28); // no callback given here because this time we probably 
 												// already know the result will be 32 
-												// but would still like to leave this as an exercise 
+												// though would still like to leave this as an exercise 
 												// for the rpc pier in the master process ;) 
 			}
 		});
